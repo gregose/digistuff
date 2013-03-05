@@ -7,10 +7,10 @@
 ISR(WDT_vect)
 {
   // Toggle LED
-	PORTB ^= _BV(0);
+  PORTB ^= _BV(0);
 
   // Re-enable watchdog interrupt
-	WDTCR |= _BV(WDIE);
+  WDTCR |= _BV(WDIE);
 }
 
 int __attribute__((noreturn)) main(void)
@@ -42,6 +42,6 @@ int __attribute__((noreturn)) main(void)
   set_sleep_mode(SLEEP_MODE_PWR_DOWN);
   
   for(;;) { // main loop, continue execution in WDT interrupt handler
-  	sleep_mode();
+    sleep_mode();
   }
 }
